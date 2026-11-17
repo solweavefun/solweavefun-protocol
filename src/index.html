@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="{{BG}}">
+  <title>SOLWEAVE</title>
+  <meta name="description" content="Solweave stitches live Solana token activity into one readable pattern. Prices, volume and liquidity, always on.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SOLWEAVE">
+  <meta property="og:description" content="Solweave stitches live Solana token activity into one readable pattern.">
+  <meta property="og:image" content="https://{{DOMAIN}}/assets/banner.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+  <script type="application/json" id="register">{{REGISTER_JSON}}</script>
+  <script type="module" src="./js/main.js"></script>
+</head>
+<body>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <a class="skip-link" href="#board">Jump straight to live rows</a>
+
+  <header class="top" id="top">
+    <div class="top-row shell">
+      <a class="brand" href="#" aria-label="Solweave home"><img class="brand-logo" src="./assets/logo.png" width="36" height="36" alt=""><span class="brand-word">SOLWEAVE</span></a>
+      <nav class="nav" aria-label="Main navigation"><a href="#board">Board</a><a href="#pulse">Pulse</a><a href="#craft">Craft</a><a href="#story">Story</a></nav>
+      <div class="socials" aria-label="Social links">{{SOCIALS}}</div>
+    </div>
+    <div class="ca-bar">
+      <div class="shell ca-wrap">{{CA_SLOT}}</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero shell" id="hero" aria-labelledby="hero-title">
+      <div class="hero-copy" data-stagger>
+        <p class="status-pill" data-reveal><span class="live-dot" aria-hidden="true"></span><span>Streaming from Solana mainnet</span></p>
+        <h1 id="hero-title" data-reveal>Trading cards on-chain, stitched into one living pattern.</h1>
+        <p class="hero-desc" data-reveal>Solweave gathers scattered on-chain trades into a single fabric you can read in seconds: prices shifting, volume humming, nothing tucked behind glass.</p>
+        <div class="hero-actions" data-reveal>
+          <a class="btn btn-primary" href="#board">Watch the board</a>
+          <a class="btn btn-ghost" href="#craft">Browse our craft</a>
+        </div>
+      </div>
+
+      <div class="stage" id="stage" data-reveal>
+        <div class="mesh" aria-hidden="true" data-depth="0.15"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i><i class="blob b4"></i></div>
+        <img class="stage-art" src="./assets/banner.jpg" width="1500" height="500" alt="Solweave wordmark beside a dark woven pouch holding six glowing trading cards" data-depth="0.35">
+        <img class="float f1" src="./assets/logo.png" alt="" aria-hidden="true" data-depth="0.9">
+        <img class="float f2" src="./assets/logo.png" alt="" aria-hidden="true" data-depth="1.4">
+        <img class="float f3" src="./assets/logo.png" alt="" aria-hidden="true" data-depth="0.6">
+        <div class="stage-vignette" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Live ticker">
+      <div class="ticker-track" id="ticker" aria-hidden="true"></div>
+    </section>
+
+    <section class="board shell" id="board" aria-labelledby="board-title">
+      <div class="board-intro" data-stagger>
+        <p class="eyebrow" data-reveal><span class="dot"></span>LIVE MARKET <span class="eyebrow-idx">/ 01</span></p>
+        <h2 id="board-title" data-reveal>Watch the loom run.</h2>
+        <p class="board-desc" data-reveal>Ten hot Solana tokens, redrawn every minute from public DexScreener feeds. Our own thread is pinned first, so it never gets buried in noise.</p>
+        <a class="source-link" data-reveal href="{{MARKET_SITE}}" target="_blank" rel="noopener noreferrer">Source: DexScreener <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M7 5h8v8" stroke="currentColor" stroke-width="1.4"/></svg></a>
+      </div>
+
+      <div class="panel spot" id="panel" data-reveal>
+        <div class="panel-head">
+          <div class="panel-title"><span class="panel-mark" aria-hidden="true"><img src="./assets/logo.png" alt="" width="22" height="22"></span><div><h3>Market Board</h3><span>Solana trending</span></div></div>
+          <span class="state-pill" id="state-pill" role="status" data-state="syncing"><span class="live-dot" aria-hidden="true"></span><span id="state-text">Syncing</span></span>
+        </div>
+        <div class="cols" aria-hidden="true"><span>#</span><span>Token</span><span class="num">Price</span><span class="num">24H</span><span class="num">Volume</span><span class="num">Liquidity</span></div>
+        <ol class="rows" id="rows" aria-live="polite"></ol>
+        <p class="panel-note" id="panel-note" hidden></p>
+      </div>
+    </section>
+
+    <section class="strip shell" id="pulse" aria-label="Board pulse">
+      <div class="strip-heading"><span class="dot"></span><span>Loom pulse</span></div>
+      <div class="metric"><strong id="m-count">—</strong><span>Tokens on the board</span></div>
+      <div class="metric"><strong id="m-move">—</strong><span>Biggest 24H move</span></div>
+      <div class="metric"><strong id="m-liq">—</strong><span>Liquidity across the ten</span></div>
+    </section>
+
+    <section class="craft shell" id="craft" aria-label="How the loom works">
+      <div class="craft-head" data-stagger><h2 data-reveal>From thread to pattern</h2><span data-reveal>Three habits behind every row.</span></div>
+      <div class="craft-grid" data-stagger>
+        <article class="spot" data-reveal>
+          <div class="sec-head"><h3>Warp</h3><span class="sec-tag">PULL</span></div>
+          <p class="lead">Public endpoints only. Nothing private, nothing paid, nothing we cannot show you.</p>
+          <ol class="steps">
+            <li><span>01</span><p><strong>Rank the heat</strong><small>Boosted Solana tokens sorted by total boost spend.</small></p></li>
+            <li><span>02</span><p><strong>Pick the winners</strong><small>The ten strongest earn a seat.</small></p></li>
+            <li><span>03</span><p><strong>Fetch the pairs</strong><small>Every token is looked up by address.</small></p></li>
+          </ol>
+        </article>
+        <article class="spot" data-reveal>
+          <div class="sec-head"><h3>Weft</h3><span class="sec-tag">CROSS</span></div>
+          <p class="lead">Numbers come from whichever pool holds most volume.</p>
+          <ol class="steps">
+            <li><span>01</span><p><strong>Deepest pool wins</strong><small>Pairs are sorted by 24H volume, highest first.</small></p></li>
+            <li><span>02</span><p><strong>One row, five facts</strong><small>Price, move, volume, liquidity and a logo.</small></p></li>
+            <li><span>03</span><p><strong>Pinned thread</strong><small>Ours sits on top and never gets duplicated below.</small></p></li>
+          </ol>
+        </article>
+        <article class="spot" data-reveal>
+          <div class="sec-head"><h3>Selvedge</h3><span class="sec-tag">HOLD</span></div>
+          <p class="lead">When a feed stumbles, the fabric keeps its shape.</p>
+          <ol class="steps">
+            <li><span>01</span><p><strong>Keep the last good</strong><small>Stale numbers stay visible until fresher ones land.</small></p></li>
+            <li><span>02</span><p><strong>Dash, never guess</strong><small>Missing data shows a dash plus a plain error line.</small></p></li>
+            <li><span>03</span><p><strong>Rest when hidden</strong><small>Background tabs sleep, then catch up on return.</small></p></li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <section class="story shell" id="story" aria-labelledby="story-title">
+      <div class="story-symbol" aria-hidden="true">
+        <svg viewBox="0 0 96 96" fill="none"><circle cx="48" cy="48" r="43" stroke="currentColor" stroke-width="2"/><path d="M20 20 76 76M76 20 20 76" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="M34 14 82 62M14 34 62 82" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity=".5"/><circle cx="48" cy="48" r="9" fill="currentColor"/></svg>
+      </div>
+      <div class="story-copy" data-stagger>
+        <h2 id="story-title" data-reveal>Stitched openly, one row after another.</h2>
+        <p data-reveal>This community-run loom weaves Solana markets. As soon as the token address goes public, it appears inside our top bar and row one swaps its placeholder for live numbers.</p>
+        <span data-reveal>None of this is financial advice. Verify any address twice before buying.</span>
+      </div>
+      <div class="story-side" aria-hidden="true">tighter with every row</div>
+    </section>
+  </main>
+
+  <footer class="footer shell">
+    <a class="brand brand-sm" href="#" aria-label="Solweave home"><img class="brand-logo" src="./assets/logo.png" width="24" height="24" alt=""><span class="brand-word">SOLWEAVE</span></a>
+    <p>Independent community project. Data from public feeds.</p>
+    <span>{{DOMAIN}}</span>
+  </footer>
+</body>
+</html>

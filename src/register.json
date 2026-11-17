@@ -1,0 +1,15 @@
+{
+  "ca":     { "state": "absent", "value": null, "chain": "solana" },
+  "x":      { "state": "stated", "url": "https://x.com/sol_weave" },
+  "github": { "state": "absent", "url": null },
+  "domain": { "state": "stated", "value": "solweave.fun" },
+  "rpc":    { "state": "stated", "url": "https://solana-rpc.publicnode.com" },
+  "market": {
+    "state": "stated",
+    "site": "https://dexscreener.com",
+    "boosts": "https://api.dexscreener.com/token-boosts/top/v1",
+    "tokens": "https://api.dexscreener.com/tokens/v1/solana/",
+    "own": "https://api.dexscreener.com/latest/dex/tokens/",
+    "pump": "https://frontend-api.pump.fun/coins/"
+  }
+}

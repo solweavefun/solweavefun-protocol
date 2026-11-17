@@ -1,0 +1,16 @@
+{
+  "name": "solweave",
+  "version": "1.0.0",
+  "description": "Solweave — a live loom for Solana trading cards.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "verify": "node scripts/verify.mjs",
+    "serve": "node scripts/serve.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.5"
+  }
+}

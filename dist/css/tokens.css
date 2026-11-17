@@ -1,0 +1,14 @@
+/* generated from src/tokens.js — do not edit */
+:root {
+  --c-bg: #03000d;
+  --c-surface: #050014;
+  --c-raised: #140b1e;
+  --c-ink: #ffffff;
+  --c-purple: #5928a7;
+  --c-down: #c29fad;
+  --c-accent: #00ffcc;
+  --color-accent: var(--c-accent);
+  --font-display: 'Manrope', system-ui, sans-serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+}
